@@ -4,6 +4,7 @@ import java.lang.Math;
 
 /**
  * @author David Hernandez 6309110
+ * repository https://github.com/davidhernandez94/Lab1DavidHernandez
  * Lab 1
  * 25/08/2025
  */
