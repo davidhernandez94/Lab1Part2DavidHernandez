@@ -1,6 +1,7 @@
 package com.mycompany.lab1davidhernandez;
 
 import java.lang.Math;
+import java.util.Arrays;
 
 /**
  * @author David Hernandez 6309110
@@ -11,6 +12,7 @@ import java.lang.Math;
 
 public class ZipCode {
     protected int Zip;
+    private final static String[] nums = {"11000","00011", "00101", "00110", "01001", "01010", "01100", "10001", "10010", "10100"};
 
     public ZipCode(int num) {
         Zip = num;
@@ -18,7 +20,6 @@ public class ZipCode {
             System.out.println("Error: bar code must be 5 digits "
                     + "long or less");
         }
-        Zip = Zip % 100_000;
     }
 
     public ZipCode(String bar) {
@@ -68,23 +69,12 @@ public class ZipCode {
      */
     public String GetBarCode() {
         String str = "1";
-        String zipString = String.valueOf(Zip);
+        String zipString = String.valueOf(Zip % 100_000);
         while (zipString.length() < 5) {
-            zipString = " " + zipString;
+            zipString = "0" + zipString;
         }
         for (int i = 0; i < zipString.length(); i++) {
-            str += switch(zipString.charAt(i)) {
-                case '1' -> "00011";
-                case '2' -> "00101";
-                case '3' -> "00110";
-                case '4' -> "01001";
-                case '5' -> "01010";
-                case '6' -> "01100";
-                case '7' -> "10001";
-                case '8' -> "10010";
-                case '9' -> "10100";
-                default -> "11000";
-            };
+            str += nums[Integer.parseInt(zipString.substring(i,i + 1))];
         }
         return str + "1";
     }
@@ -97,19 +87,7 @@ public class ZipCode {
     private static int ParseBarCode(String binary) {
         int result = 0;
         for (int i = 0; i < 5; i++) {
-            String num = binary.substring(5 * i + 1, 5 * i + 6);
-            result += (int) (switch(num) {
-                            case "00011" -> 1;
-                            case "00101" -> 2;
-                            case "00110" -> 3;
-                            case "01001" -> 4;
-                            case "01010" -> 5;
-                            case "01100" -> 6;
-                            case "10001" -> 7;
-                            case "10010" -> 8;
-                            case "10100" -> 9;
-                            default -> 0;
-                        } * Math.pow(10, 4 - i));
+            result += (int) (Arrays.asList(nums).indexOf(binary.substring(i * 5 + 1, i * 5 + 6)) * Math.pow(10, 4 - i));
         }
         return result;
     }
