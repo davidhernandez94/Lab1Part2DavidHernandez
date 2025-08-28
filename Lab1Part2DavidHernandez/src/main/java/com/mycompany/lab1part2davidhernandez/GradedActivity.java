@@ -9,10 +9,10 @@ package com.mycompany.lab1part2davidhernandez;
  * @author David Hernandez
  */
 public abstract class GradedActivity {
-    protected double score;
+    private double score;
 
     /**
-     * calculates the corresponding letter grade 
+     * calculates the corresponding letter grade
      * @return char letter grade based on score
      */
     public char getGrade() {

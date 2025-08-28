@@ -17,7 +17,7 @@ public class FinalExam extends GradedActivity {
         this.numQuestions = numQuestions;
         this.numMissed = numMissed;
         this.pointsEach = 100 / numQuestions;
-        this.score = 100 - (numMissed * pointsEach);
+        this.setScore(100 - (numMissed * pointsEach));
     }
     
     /**
