@@ -1,9 +1,14 @@
 package com.mycompany.lab1part2davidhernandez;
 
+/**
+ * @author david hernandez
+ */
+
 public class PassFailActivity extends GradedActivity {
     private double minPassingScore;
 
     public PassFailActivity(double minPassingScore) {
+        super(0);
         this.minPassingScore = minPassingScore;
     }
 
@@ -14,7 +19,7 @@ public class PassFailActivity extends GradedActivity {
      */
     @Override
     public char getGrade() {
-        if (this.getScore() >= 60) {
+        if (this.getScore() >= minPassingScore) {
             return 'P';
         }
         return 'F';

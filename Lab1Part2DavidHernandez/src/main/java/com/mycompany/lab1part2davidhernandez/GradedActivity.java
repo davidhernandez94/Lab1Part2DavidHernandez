@@ -5,11 +5,15 @@
 package com.mycompany.lab1part2davidhernandez;
 
 /**
- *
  * @author David Hernandez
  */
-public abstract class GradedActivity {
+
+public class GradedActivity {
     private double score;
+
+    public GradedActivity(double score) {
+        this.score = score;
+    }
 
     /**
      * calculates the corresponding letter grade

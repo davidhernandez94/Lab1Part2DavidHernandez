@@ -5,15 +5,16 @@
 package com.mycompany.lab1part2davidhernandez;
 
 /**
- *
  * @author David Hernandez
  */
+
 public class FinalExam extends GradedActivity {
     private int numQuestions;
     private double pointsEach;
     private int numMissed;
 
     public FinalExam(int numQuestions, int numMissed) {
+        super(0);
         this.numQuestions = numQuestions;
         this.numMissed = numMissed;
         this.pointsEach = 100 / numQuestions;

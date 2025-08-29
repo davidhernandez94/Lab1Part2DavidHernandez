@@ -1,5 +1,9 @@
 package com.mycompany.lab1part2davidhernandez;
 
+/**
+ * @author david hernandez
+ */
+
 public class PassFailExam extends PassFailActivity {
     private int numQuestions;
     private double pointsEach;
